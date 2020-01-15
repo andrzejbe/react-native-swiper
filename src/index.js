@@ -398,6 +398,19 @@ export default class extends Component {
       }
     }
 
+    // check if scroll ended correctly - not half-way through...
+    if (this.props.horizontal) {
+      if (e.nativeEvent.contentOffset.x % this.state.width > 0) {
+        const nearest = Math.floor( ( e.nativeEvent.contentOffset.x / this.state.width ) + 0.5 ) * this.state.width;
+        e.nativeEvent.contentOffset.x = nearest;
+      }
+    } else {
+      if (e.nativeEvent.contentOffset.y % this.state.height > 0) {
+        const nearest = Math.floor( ( e.nativeEvent.contentOffset.y / this.state.height ) + 0.5 ) * this.state.height;
+        e.nativeEvent.contentOffset.y = nearest;
+      }
+    }
+
     this.updateIndex(e.nativeEvent.contentOffset, this.state.dir, () => {
       this.autoplay()
       this.loopJump()
