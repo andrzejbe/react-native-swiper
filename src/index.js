@@ -566,7 +566,7 @@ export default class extends Component {
             position: diff
           }
         })
-      }, 50)
+      }, 200) // native UI too slow sometimes.. ¯\_(ツ)_/¯
     }
   }
 
@@ -608,7 +608,7 @@ export default class extends Component {
             position: diff
           }
         })
-      }, 50)
+      }, 200) // native UI too slow sometimes.. ¯\_(ツ)_/¯
     }
   }
 
